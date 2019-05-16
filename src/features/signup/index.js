@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userPostFetch } from './signup/actions.js';
+import { userPostFetch } from '../../config/actions';
 
 class Signup extends Component {
   state = {

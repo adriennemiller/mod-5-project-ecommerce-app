@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+products = Product.create([{ name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}])
+
+

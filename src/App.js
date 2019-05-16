@@ -34,26 +34,22 @@ class App extends Component {
       <div>
         <Navigation />
         <Router />
-        <div>
-          {this.props.currentUser.username ? (
-            <button onClick={this.handleClick}>Log Out</button>
-          ) : null}
-        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  currentUser: state.reducer.currentUser
-});
+// const mapStateToProps = state => ({
+//   currentUser: state.reducer.currentUser
+// });
 
-const mapDispatchToProps = dispatch => ({
-  getProfileFetch: () => dispatch(getProfileFetch()),
-  logoutUser: () => dispatch(logoutUser())
-});
+// const mapDispatchToProps = dispatch => ({
+//   getProfileFetch: () => dispatch(getProfileFetch())
+// });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+// export default connect(
+//   null,
+//   mapDispatchToProps
+// )(App);
+
+export default App;

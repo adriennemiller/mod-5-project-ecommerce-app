@@ -1,3 +1,8 @@
+const loginUser = userObj => ({
+  type: 'LOGIN_USER',
+  payload: userObj
+});
+
 export const getProfileFetch = () => {
   return dispatch => {
     const token = localStorage.token;
@@ -65,11 +70,6 @@ export const userLoginFetch = user => {
       });
   };
 };
-
-const loginUser = userObj => ({
-  type: 'LOGIN_USER',
-  payload: userObj
-});
 
 export const logoutUser = () => ({
   type: 'LOGOUT_USER'
