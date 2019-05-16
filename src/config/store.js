@@ -1,7 +1,8 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers } from 'redux';
+import signUp from '../features/signup/reducer';
+import logIn from '../features/login/reducer';
 
-
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({ signUp, logIn });
 
 const store = createStore(
   rootReducer,
