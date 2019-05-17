@@ -1,55 +1,47 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getProfileFetch, logoutUser } from './config/actions';
 
 import Router from './Router';
 
 const Navigation = props => (
   <nav>
-    <ul>
+    <ul className="top-menu">
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/cart">Cart</NavLink>
+        <NavLink to="/cart">
+          Cart (
+          {props.cart.reduce((acc, item) => {
+            return acc + item.quantity;
+          }, 0)}
+          )
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/checkout">Checkout</NavLink>
       </li>
     </ul>
   </nav>
 );
 
 class App extends Component {
-  componentDidMount = () => {
-    this.props.getProfileFetch();
-  };
-
-  handleClick = event => {
-    event.preventDefault();
-    localStorage.removeItem('token');
-    this.props.logoutUser();
-  };
-
   render() {
     return (
-      <div>
-        <Navigation />
+      <div className="page-container">
+        <Navigation {...this.props} />
+
         <Router />
       </div>
     );
   }
 }
 
-// const mapStateToProps = state => ({
-//   currentUser: state.reducer.currentUser
-// });
+function mapStatetoProps(state) {
+  return {
+    cart: state.cart
+  };
+}
 
-// const mapDispatchToProps = dispatch => ({
-//   getProfileFetch: () => dispatch(getProfileFetch())
-// });
-
-// export default connect(
-//   null,
-//   mapDispatchToProps
-// )(App);
-
-export default App;
+export default connect(mapStatetoProps)(App);
