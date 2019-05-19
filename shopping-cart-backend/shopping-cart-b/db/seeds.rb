@@ -7,6 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-products = Product.create([{ name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}, { name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150'}])
+product1 = Product.create!(name: 'Thing 1', description: 'Description', img: 'https://via.placeholder.com/150', price: 1.6)
+product2 = Product.create!(name: 'Thing 2', description: 'Description', img: 'https://via.placeholder.com/150', price: 1.6)
+product3 = Product.create!(name: 'Thing 3', description: 'Description', img: 'https://via.placeholder.com/150', price: 1.6)
+product4 = Product.create!(name: 'Thing 4', description: 'Description', img: 'https://via.placeholder.com/150', price: 1.6)
+
+
+
 
 

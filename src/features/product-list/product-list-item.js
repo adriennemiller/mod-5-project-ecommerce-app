@@ -7,7 +7,7 @@ export default function ProductListItem(props) {
       <img
         height={200}
         title={props.product.name}
-        src={props.product.image}
+        src={props.product.img}
         alt={props.product.name}
       />
       <div> {props.product.description}</div>

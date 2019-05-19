@@ -1,7 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Cart from '../cart';
-import CheckoutForm from '../form';
+import CheckoutForm from './form';
+import fetchApi from '../../modules/fetch-api';
+
+function submitOrder(cart) {
+  // fetchApi( 'post', urlpostto)
+  alert('you placed an order');
+}
 
 function Checkout(props) {
   const { cart } = props;
@@ -12,7 +18,7 @@ function Checkout(props) {
         <Cart />
       </div>
 
-      <CheckoutForm />
+      <CheckoutForm onSubmit={values => submitOrder(cart, values)} />
     </div>
   );
 }
