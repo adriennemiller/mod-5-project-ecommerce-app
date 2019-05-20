@@ -1,18 +1,20 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import thunk from 'redux-thunk';
 
 import cartReducer from '../features/cart/reducer';
 import productsReducer from '../features/product-list/reducer';
+import signupReducer from '../features/signup/reducer';
 
 const rootReducer = combineReducers({
   cart: cartReducer,
   products: productsReducer,
-  form: formReducer
+  form: formReducer,
+  signup: signupReducer
 });
 
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
 
 export default store;

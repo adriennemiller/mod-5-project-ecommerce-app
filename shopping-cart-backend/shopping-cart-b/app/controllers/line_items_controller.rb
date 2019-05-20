@@ -12,7 +12,7 @@ class LineItemsController < ApplicationController
         if @line_item.save
           render json: @line_item, status: :accepted
         else
-          render json: { errors: @item.errors.full_messages }, status: :unprocessible_entity
+          render json: { errors: @line_item.errors.full_messages }, status: :unprocessible_entity
         end
       end
     

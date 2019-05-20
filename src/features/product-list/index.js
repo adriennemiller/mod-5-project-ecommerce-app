@@ -30,7 +30,7 @@ class ProductList extends React.Component {
   }
 }
 
-// defines which keys out of redux store were allowing as props to current component -> cart key goes to cart reducer inside of //redux store
+// defines which keys out of redux store are allowed as props to current component -> cart key goes to cart reducer inside of //redux store
 function mapStatetoProps(state) {
   return {
     cart: state.cart,

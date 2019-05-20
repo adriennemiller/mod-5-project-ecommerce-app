@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// how to sort so they dont jump aorund??
+// sort so they don't jump around
 function sort(items) {
   return items.sort(function(a, b) {
     return a.id - b.id;

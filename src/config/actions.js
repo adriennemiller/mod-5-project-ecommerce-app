@@ -1,8 +1,3 @@
-const loginUser = userObj => ({
-  type: 'LOGIN_USER',
-  payload: userObj
-});
-
 export const getProfileFetch = () => {
   return dispatch => {
     const token = localStorage.token;
@@ -37,10 +32,13 @@ export const userPostFetch = user => {
       },
       body: JSON.stringify({ user })
     })
-      .then(res => res.json())
+      .then(resp => resp.json())
       .then(data => {
         if (data.message) {
           alert('error creating account');
+          // Here you should have logic to handle invalid creation of a user.
+          // This assumes your Rails API will return a JSON object with a key of
+          // 'message' if there is an error with creating the user, i.e. invalid username
         } else {
           localStorage.setItem('token', data.jwt);
           dispatch(loginUser(data.user));
@@ -48,6 +46,11 @@ export const userPostFetch = user => {
       });
   };
 };
+
+const loginUser = userObj => ({
+  type: 'LOGIN_USER',
+  payload: userObj
+});
 
 export const userLoginFetch = user => {
   return dispatch => {
