@@ -28,14 +28,6 @@ const Navigation = props => (
   </nav>
 );
 
-const handleClick = event => {
-  event.preventDefault();
-  // Remove the token from localStorage
-  localStorage.removeItem('token');
-  // Remove the user object from the Redux store
-  this.props.logoutUser();
-};
-
 class App extends Component {
   componenetDidMount = () => {
     this.props.getProfileFetch();

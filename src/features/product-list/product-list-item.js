@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function ProductListItem(props) {
+function ProductListItem(props) {
   return (
     <div className="product-list-item">
       <h3>{props.product.name}</h3>
@@ -12,18 +13,29 @@ export default function ProductListItem(props) {
       />
       <div> {props.product.description}</div>
       <div>${props.product.price}</div>
-      <div>
-        <button onClick={() => props.addToCart(props.product)}>
-          Add to Cart ({(props.cartItem && props.cartItem.quantity) || 0})
-        </button>
-      </div>
-      {props.cartItem ? (
+      {props.currentUser.username ? (
         <div>
-          <button onClick={() => props.removeFromCart(props.cartItem)}>
-            Remove From Cart
+          <button onClick={() => props.addToCart(props.product)}>
+            Add to Cart ({(props.cartItem && props.cartItem.quantity) || 0})
           </button>
+
+          {props.cartItem ? (
+            <div>
+              <button onClick={() => props.removeFromCart(props.cartItem)}>
+                Remove From Cart
+              </button>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>
   );
 }
+
+function mapStatetoProps(state) {
+  return {
+    currentUser: state.loggedin.currentUser
+  };
+}
+
+export default connect(mapStatetoProps)(ProductListItem);
