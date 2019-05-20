@@ -56,7 +56,7 @@ class App extends Component {
 function mapStatetoProps(state) {
   return {
     cart: state.cart,
-    currentUser: state.signup.currentUser
+    currentUser: state.loggedin.currentUser
   };
 }
 const mapDispatchToProps = dispatch => ({

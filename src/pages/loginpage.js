@@ -16,6 +16,7 @@ class Login extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    console.log(this.state);
     this.props.userLoginFetch(this.state);
   };
 
