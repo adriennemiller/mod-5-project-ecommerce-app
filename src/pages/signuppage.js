@@ -16,7 +16,9 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.userPostFetch(this.state);
+    let a = this.props.userPostFetch(this.state);
+    let b = this.props.history.push('/');
+    return a && b;
   };
 
   render() {
@@ -42,7 +44,6 @@ class Signup extends Component {
           onChange={this.handleChange}
         />
         <br />
-
         <input type="submit" />
       </form>
     );

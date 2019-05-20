@@ -39,7 +39,6 @@ export const userPostFetch = user => {
         } else {
           localStorage.setItem('token', data.jwt);
           dispatch(loginUser(data.user));
-          console.log(data.user);
         }
       });
   };

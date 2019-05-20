@@ -12,20 +12,29 @@ const Navigation = props => (
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/cart">
-          Cart (
-          {props.cart.reduce((acc, item) => {
-            return acc + item.quantity;
-          }, 0)}
-          )
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/checkout">Checkout</NavLink>
+        {props.currentUser.username ? (
+          <NavLink to="/cart">
+            Cart (
+            {props.cart.reduce((acc, item) => {
+              return acc + item.quantity;
+            }, 0)}
+            )
+          </NavLink>
+        ) : (
+          <NavLink to="/login">Log In or Sign Up</NavLink>
+        )}
       </li>
     </ul>
   </nav>
 );
+
+const handleClick = event => {
+  event.preventDefault();
+  // Remove the token from localStorage
+  localStorage.removeItem('token');
+  // Remove the user object from the Redux store
+  this.props.logoutUser();
+};
 
 class App extends Component {
   componenetDidMount = () => {

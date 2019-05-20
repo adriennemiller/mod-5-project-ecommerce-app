@@ -12,5 +12,3 @@ export default function signupReducer(state = initialState, action) {
       return state;
   }
 }
-
-// why does sign up work but log in doesnt???

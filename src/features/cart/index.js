@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // sort so they don't jump around
 function sort(items) {
@@ -10,31 +11,33 @@ function sort(items) {
 
 function Cart(props) {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        {sort(props.cart).map(item => (
+    <div>
+      <table>
+        <thead>
           <tr>
-            <td>{item.name}</td>
-            <td>{item.quantity}</td>
-            <td>
-              <button onClick={e => props.addToCart(item)}>+</button>
-              <button onClick={e => props.removeFromCart(item)}>-</button>
-            </td>
-            <td>
-              <button onClick={e => props.removeAllFromCart(item)}>
-                Remove All From Cart
-              </button>
-            </td>
+            <th>Item</th>
+            <th>Quantity</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {sort(props.cart).map(item => (
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.quantity}</td>
+              <td>
+                <button onClick={e => props.addToCart(item)}>+</button>
+                <button onClick={e => props.removeFromCart(item)}>-</button>
+              </td>
+              <td>
+                <button onClick={e => props.removeAllFromCart(item)}>
+                  Remove All From Cart
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
