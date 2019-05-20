@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getProfileFetch, logoutUser } from './config/actions';
-
 import Router from './Router';
 
 const Navigation = props => (
@@ -29,16 +28,19 @@ const Navigation = props => (
 );
 
 class App extends Component {
-  componenetDidMount = () => {
+  componentDidMount = () => {
     this.props.getProfileFetch();
   };
 
   handleClick = event => {
     event.preventDefault();
     // Remove the token from localStorage
-    localStorage.removeItem('token');
+    let a = localStorage.removeItem('token');
     // Remove the user object from the Redux store
-    this.props.logoutUser();
+    let b = this.props.logoutUser();
+    console.log(this.props.history);
+    let c = this.props.history.push('/login');
+    return a && b && c;
   };
 
   render() {
@@ -68,4 +70,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStatetoProps,
   mapDispatchToProps
-)(App);
+)(withRouter(App));

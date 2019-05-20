@@ -15,7 +15,7 @@ export const getProfileFetch = () => {
           if (data.message) {
             localStorage.removeItem('token');
           } else {
-            dispatch(loginUser(data.User));
+            dispatch(loginUser(data.user));
           }
         });
     }
