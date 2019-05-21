@@ -1,6 +1,3 @@
-import fetch from 'isomorphic-fetch';
-require('es6-promise').polyfill();
-
 export default function fetchApi(method, url, data) {
   const body =
     method.toLowerCase() === 'get' ? {} : { body: JSON.stringify(data) };
@@ -9,8 +6,7 @@ export default function fetchApi(method, url, data) {
     method,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-      'X-Requested-With': 'XMLHttpRequest'
+      'Content-Type': 'application/json'
     },
     credentials: 'same-origin',
     ...body

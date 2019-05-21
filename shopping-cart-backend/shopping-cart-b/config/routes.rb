@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :orders
-  resources :line_items
   resources :products
   resources :users, only: [:create, :update]
   post '/login', to: 'auth#create'

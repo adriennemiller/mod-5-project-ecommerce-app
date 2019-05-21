@@ -5,25 +5,27 @@ import { getProfileFetch, logoutUser } from './config/actions';
 import Router from './Router';
 
 const Navigation = props => (
-  <nav>
-    <ul className="top-menu">
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        {props.currentUser.username ? (
-          <NavLink to="/cart">
-            Cart (
-            {props.cart.reduce((acc, item) => {
-              return acc + item.quantity;
-            }, 0)}
-            )
-          </NavLink>
-        ) : (
-          <NavLink to="/login">Log In or Sign Up</NavLink>
-        )}
-      </li>
-    </ul>
+  <nav className="navbar bavbar-dark bg-dark">
+    <div>
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li className="nav-item">
+          {props.currentUser.username ? (
+            <NavLink to="/cart">
+              Cart (
+              {props.cart.reduce((acc, item) => {
+                return acc + item.quantity;
+              }, 0)}
+              )
+            </NavLink>
+          ) : (
+            <NavLink to="/login">Log In or Sign Up</NavLink>
+          )}
+        </li>
+      </ul>
+    </div>
   </nav>
 );
 

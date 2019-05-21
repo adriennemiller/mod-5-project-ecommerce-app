@@ -27,11 +27,12 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <h1>Login</h1>
+        <form className="form-signin" onSubmit={this.handleSubmit}>
+          <h1 className="h3 mb-3 font-weight-normal">Login</h1>
 
-          <label>Username</label>
+          <label className="sr-only">Username</label>
           <input
+            className="form-control"
             name="username"
             placeholder="Username"
             value={this.state.username}
@@ -39,8 +40,9 @@ class Login extends Component {
           />
           <br />
 
-          <label>Password</label>
+          <label className="sr-only">Password</label>
           <input
+            className="form-control"
             type="password"
             name="password"
             placeholder="Password"
@@ -49,7 +51,9 @@ class Login extends Component {
           />
           <br />
 
-          <input type="submit" />
+          <button className="btn btn-lg btn-primary btn-block" type="submit">
+            Log In
+          </button>
         </form>
         <br />
         Or <Link to="/signup">Create Account</Link>
