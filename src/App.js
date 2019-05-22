@@ -17,7 +17,6 @@ class App extends Component {
     this.props.getProfileFetch();
   };
 
-
   handleClick = event => {
     event.preventDefault();
     // Remove the token from localStorage
@@ -33,34 +32,41 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Navbar color="light" light expand="md">
-      <NavbarBrand>
-        <NavLink to="/">Shopping Site</NavLink>
-      </NavbarBrand>
-  
-      <Nav className="ml-auto" navbar>
-        <NavItem>
-          {this.props.currentUser.username ? (
-            <NavLink to="/cart">
-              Cart (
-              {this.props.cart.reduce((acc, item) => {
-                return acc + item.quantity;
-              }, 0)}
-              )
+        <Navbar color="light" light expand="md">
+          <NavbarBrand>
+            <NavLink to="/">
+              <img src="./fake-logo.png" alt="logo" />
             </NavLink>
-          ) : (
-            <NavLink to="/login">Log In or Sign Up</NavLink>
-          )}
-        </NavItem>
-        <NavItem>
-        {this.props.currentUser.username ? (
-          <Button color="primary" onClick={this.handleClick}>
-            Log Out
-          </Button>
-        ) : null}
-        </NavItem>
-      </Nav>
-    </Navbar>
+          </NavbarBrand>
+
+          <Nav className="ml-auto" navbar>
+            <NavItem className="nav-spacing">
+              {this.props.currentUser.username ? (
+                <NavLink to="/cart">
+                  Cart (
+                  {this.props.cart.reduce((acc, item) => {
+                    return acc + item.quantity;
+                  }, 0)}
+                  )
+                </NavLink>
+              ) : (
+                <NavLink to="/login">Log In or Sign Up</NavLink>
+              )}
+            </NavItem>
+            {this.props.currentUser.username ? (
+              <NavItem className="nav-spacing">
+                Welcome, {this.props.currentUser.username}
+              </NavItem>
+            ) : null}
+            <NavItem className="nav-spacing">
+              {this.props.currentUser.username ? (
+                <Button color="primary" onClick={this.handleClick}>
+                  Log Out
+                </Button>
+              ) : null}
+            </NavItem>
+          </Nav>
+        </Navbar>
         <Container>
           <Router />
         </Container>
