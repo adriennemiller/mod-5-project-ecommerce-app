@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   skip_before_action :authorized
     def index
-        @Orders = Orders.all
+        @Orders = Order.all
         render json: @Orders
       end
     

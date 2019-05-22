@@ -1,5 +1,6 @@
 const initialState = {
-  currentUser: {}
+  currentUser: {},
+  cart: {}
 };
 
 export default function signupReducer(state = initialState, action) {
@@ -7,7 +8,7 @@ export default function signupReducer(state = initialState, action) {
     case 'LOGIN_USER':
       return { ...state, currentUser: action.payload };
     case 'LOGOUT_USER':
-      return { ...state, currentUser: {} };
+      return { initialState, currentUser: {} };
     default:
       return state;
   }

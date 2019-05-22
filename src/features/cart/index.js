@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Button, Table } from 'reactstrap';
 
 // sort so they don't jump around
 function sort(items) {
@@ -12,31 +13,42 @@ function sort(items) {
 function Cart(props) {
   return (
     <div>
-      <table>
+      <Table striped>
         <thead>
           <tr>
+            <th> </th>
             <th>Item</th>
             <th>Quantity</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
           {sort(props.cart).map(item => (
             <tr>
+              <td>
+                <Button
+                  color="primary"
+                  onClick={e => props.removeAllFromCart(item)}>
+                  X
+                </Button>
+              </td>
               <td>{item.name}</td>
-              <td>{item.quantity}</td>
               <td>
-                <button onClick={e => props.addToCart(item)}>+</button>
-                <button onClick={e => props.removeFromCart(item)}>-</button>
+                <Button
+                  color="primary"
+                  onClick={e => props.removeFromCart(item)}>
+                  -
+                </Button>
+                {item.quantity}
+                <Button color="primary" onClick={e => props.addToCart(item)}>
+                  +
+                </Button>
               </td>
-              <td>
-                <button onClick={e => props.removeAllFromCart(item)}>
-                  Remove All From Cart
-                </button>
-              </td>
+              <td>${(item.price * item.quantity).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 }

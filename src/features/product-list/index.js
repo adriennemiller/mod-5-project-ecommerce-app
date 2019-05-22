@@ -2,6 +2,7 @@ import React from 'react';
 import ProductListItem from './product-list-item';
 import { connect } from 'react-redux';
 import fetchApi from '../../modules/fetch-api';
+import { Container, Row, Col } from 'reactstrap';
 
 class ProductList extends React.Component {
   componentDidMount() {
@@ -15,7 +16,7 @@ class ProductList extends React.Component {
     const { removeFromCart, products, cart } = this.props;
 
     return (
-      <div className="product-list">
+      <Row className="content">
         {products.map((product, index) => (
           <ProductListItem
             product={product}
@@ -25,7 +26,7 @@ class ProductList extends React.Component {
             cartItem={cart.filter(cartItem => cartItem.id === product.id)[0]}
           />
         ))}
-      </div>
+      </Row>
     );
   }
 }

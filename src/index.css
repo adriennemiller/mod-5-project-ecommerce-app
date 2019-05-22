@@ -15,14 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-/* 
+
+.product-list-item {
+  padding: 10px 30px;
+  margin: 50px;
+  width: 200px;
+}
+
 .page-container {
-  width: 800px;
   margin: 10px auto;
   background-color: white;
   padding: 32px;
   position: relative;
 }
+
+/* 
+
 
 .product-list {
   display: flex;
@@ -31,10 +39,7 @@ code {
   flex-direction: row;
 }
 
-.product-list .product-list-item {
-  padding: 10px 30px;
-  width: 200px;
-}
+
 
 ul.top-menu {
   position: absolute;

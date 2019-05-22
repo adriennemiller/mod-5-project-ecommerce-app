@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 
 function ProductListItem(props) {
   return (
@@ -15,15 +16,19 @@ function ProductListItem(props) {
       <div>${props.product.price}</div>
       {props.currentUser.username ? (
         <div>
-          <button onClick={() => props.addToCart(props.product)}>
+          <Button
+            color="primary"
+            onClick={() => props.addToCart(props.product)}>
             Add to Cart ({(props.cartItem && props.cartItem.quantity) || 0})
-          </button>
+          </Button>
 
           {props.cartItem ? (
             <div>
-              <button onClick={() => props.removeFromCart(props.cartItem)}>
+              <Button
+                color="primary"
+                onClick={() => props.removeFromCart(props.cartItem)}>
                 Remove From Cart
-              </button>
+              </Button>
             </div>
           ) : null}
         </div>

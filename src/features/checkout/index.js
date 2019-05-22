@@ -14,9 +14,9 @@ function submitOrder(item, currentUser) {
       alert('something is wrong');
       return;
     }
-    console.log(json);
+    console.log(json.user);
+    document.location.href = `/orders/${json.user.id}`;
   });
-  alert('you placed an order');
 }
 
 function mapOrders(cart, currentUser) {
