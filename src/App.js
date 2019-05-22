@@ -11,6 +11,7 @@ import {
   Container,
   Button
 } from 'reactstrap';
+import logo from './logo.png';
 
 class App extends Component {
   componentDidMount = () => {
@@ -32,10 +33,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md">
+        <Navbar color="light" light expand="md" sticky="top">
           <NavbarBrand>
             <NavLink to="/">
-              <img src="./fake-logo.png" alt="logo" />
+              <img src={logo} alt="logo" height="60" />
             </NavLink>
           </NavbarBrand>
 
@@ -60,7 +61,7 @@ class App extends Component {
             ) : null}
             <NavItem className="nav-spacing">
               {this.props.currentUser.username ? (
-                <Button color="primary" onClick={this.handleClick}>
+                <Button outline color="primary" onClick={this.handleClick}>
                   Log Out
                 </Button>
               ) : null}

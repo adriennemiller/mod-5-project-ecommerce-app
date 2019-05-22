@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Button } from 'reactstrap';
 
 function CheckoutForm(props) {
   const { handleSubmit } = props;
@@ -8,7 +9,7 @@ function CheckoutForm(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <button type="submit">Submit order</button>
+          <Button type="submit">Submit order</Button>
         </div>
       </form>
     </div>
