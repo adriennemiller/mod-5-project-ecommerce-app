@@ -28,13 +28,14 @@ function ProductListItem(props) {
           <CardSubtitle>${props.product.price}</CardSubtitle>
           {props.currentUser.username ? (
             <div>
+              <br />
               <Button
                 color="primary"
                 onClick={() => props.addToCart(props.product)}>
                 Add to Cart ({(props.cartItem && props.cartItem.quantity) || 0})
               </Button>
 
-              {props.cartItem ? (
+              {/* {props.cartItem ? (
                 <div>
                   <Button
                     color="primary"
@@ -42,7 +43,7 @@ function ProductListItem(props) {
                     Remove From Cart
                   </Button>
                 </div>
-              ) : null}
+              ) : null} */}
             </div>
           ) : null}
         </CardBody>

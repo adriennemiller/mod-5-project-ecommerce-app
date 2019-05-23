@@ -29,7 +29,7 @@ const removeFromCart = (cart, item) => {
 const removeAllFromCart = (cart, item) => {
   return [...cartWithoutItem(cart, item)];
 };
-
+// reducer is what changes state
 const cartReducer = (state = [], action) => {
   //  all items in state plus the new item coming from payload
   switch (action.type) {

@@ -33,14 +33,19 @@ function Cart(props) {
                 </Button>
               </td>
               <td>{item.name}</td>
+
               <td>
                 <Button
+                  className="button-space"
                   color="primary"
                   onClick={e => props.removeFromCart(item)}>
                   -
                 </Button>
                 {item.quantity}
-                <Button color="primary" onClick={e => props.addToCart(item)}>
+                <Button
+                  className="button-space"
+                  color="primary"
+                  onClick={e => props.addToCart(item)}>
                   +
                 </Button>
               </td>
@@ -58,7 +63,7 @@ function mapStateToProps(state) {
     cart: state.cart
   };
 }
-
+// dispatch to send action to reducer
 function mapDispatchToProps(dispatch) {
   return {
     addToCart: item => {

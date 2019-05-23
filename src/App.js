@@ -42,6 +42,9 @@ class App extends Component {
 
           <Nav className="ml-auto" navbar>
             <NavItem className="nav-spacing">
+              <NavLink to="/">Home</NavLink>
+            </NavItem>
+            <NavItem className="nav-spacing">
               {this.props.currentUser.username ? (
                 <NavLink to="/cart">
                   Cart (
@@ -51,7 +54,7 @@ class App extends Component {
                   )
                 </NavLink>
               ) : (
-                <NavLink to="/login">Log In or Sign Up</NavLink>
+                <NavLink to="/login">Sign In / Register</NavLink>
               )}
             </NavItem>
             {this.props.currentUser.username ? (

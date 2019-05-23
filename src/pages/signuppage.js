@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userPostFetch } from '../config/actions';
+import { Col } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class Signup extends Component {
   state = {
@@ -23,33 +25,37 @@ class Signup extends Component {
 
   render() {
     return (
-      <form className="form-signin" onSubmit={this.handleSubmit}>
-        <h1 className="h3 mb-3 font-weight-normal">Sign Up</h1>
+      <Col sm="12" md={{ size: 6, offset: 3 }}>
+        <form className="form-signin" onSubmit={this.handleSubmit}>
+          <h1 className="h3 mb-3 font-weight-normal">Sign Up</h1>
 
-        <label className="sr-only">Username</label>
-        <input
-          className="form-control"
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <br />
+          <label className="sr-only">Username</label>
+          <input
+            className="form-control"
+            name="username"
+            placeholder="Username"
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+          <br />
 
-        <label className="sr-only">Password</label>
-        <input
-          className="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
+          <label className="sr-only">Password</label>
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+          <br />
+          <button className="btn btn-lg btn-primary btn-block" type="submit">
+            Sign Up
+          </button>
+        </form>
         <br />
-        <button className="btn btn-lg btn-primary btn-block" type="submit">
-          Sign Up
-        </button>
-      </form>
+        Have an account already? <Link to="/login">Sign In</Link>
+      </Col>
     );
   }
 }

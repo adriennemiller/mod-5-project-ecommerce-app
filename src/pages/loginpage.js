@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userLoginFetch } from '../config/actions';
 import { Link } from 'react-router-dom';
+import { Col } from 'reactstrap';
 
 class Login extends Component {
   state = {
@@ -27,36 +28,38 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form className="form-signin" onSubmit={this.handleSubmit}>
-          <h1 className="h3 mb-3 font-weight-normal">Login</h1>
+        <Col sm="12" md={{ size: 6, offset: 3 }}>
+          <form className="form-signin" onSubmit={this.handleSubmit}>
+            <h1 className="h3 mb-3 font-weight-normal">Login</h1>
 
-          <label className="sr-only">Username</label>
-          <input
-            className="form-control"
-            name="username"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
+            <label className="sr-only">Username</label>
+            <input
+              className="form-control"
+              name="username"
+              placeholder="Username"
+              value={this.state.username}
+              onChange={this.handleChange}
+            />
+            <br />
+
+            <label className="sr-only">Password</label>
+            <input
+              className="form-control"
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+            <br />
+
+            <button className="btn btn-lg btn-primary btn-block" type="submit">
+              Log In
+            </button>
+          </form>
           <br />
-
-          <label className="sr-only">Password</label>
-          <input
-            className="form-control"
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <br />
-
-          <button className="btn btn-lg btn-primary btn-block" type="submit">
-            Log In
-          </button>
-        </form>
-        <br />
-        Or <Link to="/signup">Create Account</Link>
+          Or <Link to="/signup">Create Account</Link>
+        </Col>
       </div>
     );
   }
