@@ -29,7 +29,7 @@ function mapOrders(cart, currentUser) {
 function Checkout(props) {
   let sum = null;
   {
-    props.cart.map(item => (sum += item.price * item.quantity).toFixed(2));
+    props.cart.map(item => (sum += item.price * item.quantity));
   }
   return (
     <div>
@@ -52,9 +52,9 @@ function Checkout(props) {
                 </tr>
               ))}
               <tr>
+                <td className="bold-text">Total Price:</td>
                 <td />
-                <td>Total Price:</td>
-                <td>${sum}</td>
+                <td className="bold-text">${sum.toFixed(2)}</td>
               </tr>
             </tbody>
           </Table>

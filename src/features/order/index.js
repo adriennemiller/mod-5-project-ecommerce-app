@@ -1,6 +1,7 @@
 import React from 'react';
 
 import fetchApi from '../../modules/fetch-api';
+import scooterImg from '../../23.svg';
 
 class Order extends React.Component {
   state = {
@@ -16,9 +17,12 @@ class Order extends React.Component {
   }
 
   renderOrder() {
+    const { order } = this.state;
+    console.log(order);
     return (
       <div>
-        <h3>Hooray, your order was successful!</h3>
+        <h3 className="text-center">Hooray, your order is on its way!</h3>
+        <img src={scooterImg} alt="man on scooter" className="scooter-img" />
       </div>
     );
   }

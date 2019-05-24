@@ -9,11 +9,28 @@ import {
   Nav,
   NavItem,
   Container,
-  Button
+  Button, 
+  NavbarToggler, 
+  Collapse
 } from 'reactstrap';
 import logo from './logo.png';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+
   componentDidMount = () => {
     this.props.getProfileFetch();
   };
@@ -39,7 +56,8 @@ class App extends Component {
               <img src={logo} alt="logo" height="60" />
             </NavLink>
           </NavbarBrand>
-
+           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem className="nav-spacing">
               <NavLink to="/">Home</NavLink>
@@ -69,8 +87,10 @@ class App extends Component {
                 </Button>
               ) : null}
             </NavItem>
-          </Nav>
+            </Nav>
+          </Collapse>
         </Navbar>
+        
         <Container>
           <Router />
         </Container>
