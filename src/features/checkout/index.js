@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Cart from '../cart';
 import CheckoutForm from './form';
 import fetchApi from '../../modules/fetch-api';
+import { Button, Table } from 'reactstrap';
 
 function submitOrder(item, currentUser) {
   fetchApi('POST', 'http://localhost:4000/orders', {
@@ -26,10 +27,38 @@ function mapOrders(cart, currentUser) {
 }
 
 function Checkout(props) {
+  let sum = null;
+  {
+    props.cart.map(item => (sum += item.price * item.quantity).toFixed(2));
+  }
   return (
     <div>
       <div style={{ border: '1px solid black' }}>
-        <Cart />
+        <div>
+          <Table striped>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.cart.map(item => (
+                <tr>
+                  <td>{item.name}</td>
+                  <td> {item.quantity}</td>
+                  <td>${(item.price * item.quantity).toFixed(2)}</td>
+                </tr>
+              ))}
+              <tr>
+                <td />
+                <td>Total Price:</td>
+                <td>${sum}</td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
       </div>
 
       <CheckoutForm
