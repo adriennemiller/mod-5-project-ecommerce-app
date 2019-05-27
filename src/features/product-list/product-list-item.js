@@ -7,35 +7,91 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
-  Button
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
 } from 'reactstrap';
 
-function ProductListItem(props) {
-  return (
-    <div className="product-list-item">
-      <Card>
-        <CardImg
-          height={200}
-          title={props.product.name}
-          src={props.product.img}
-          alt={props.product.name}
-        />
-        <CardBody>
-          <CardTitle>
-            <h3>{props.product.name}</h3>
-          </CardTitle>
-          <CardText> {props.product.description}</CardText>
-          <CardSubtitle>${props.product.price}</CardSubtitle>
-          {props.currentUser.username ? (
-            <div>
-              <br />
-              <Button
-                color="primary"
-                onClick={() => props.addToCart(props.product)}>
-                Add to Cart ({(props.cartItem && props.cartItem.quantity) || 0})
-              </Button>
+class ProductListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
 
-              {/* {props.cartItem ? (
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      modal: !prevState.modal
+    }));
+  }
+
+  render() {
+    return (
+      <div>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>
+            {this.props.product.name} - ${this.props.product.price}
+            <br />
+            <img
+              height={200}
+              title={this.props.product.name}
+              src={this.props.product.img}
+              alt={this.props.product.name}
+            />
+          </ModalHeader>
+          <ModalBody>{this.props.product.description}</ModalBody>
+          <ModalFooter>
+            <Button
+              color="primary"
+              onClick={() => this.props.addToCart(this.props.product)}>
+              Add to Cart (
+              {(this.props.cartItem && this.props.cartItem.quantity) || 0})
+            </Button>{' '}
+          </ModalFooter>
+        </Modal>
+
+        <div className="product-list-item">
+          <Card>
+            <CardImg
+              height={200}
+              title={this.props.product.name}
+              src={this.props.product.img}
+              alt={this.props.product.name}
+              onClick={this.toggle}
+            />
+            <CardBody>
+              <CardTitle onClick={this.toggle}>
+                <h3>{this.props.product.name}</h3>
+              </CardTitle>
+              <CardText onClick={this.toggle}>
+                {' '}
+                {this.props.product.description}
+              </CardText>
+              <CardSubtitle onClick={this.toggle}>
+                ${this.props.product.price}
+              </CardSubtitle>
+              {this.props.currentUser.username ? (
+                <div>
+                  <Button onClick={this.toggle}>Learn More</Button>
+                  <br />
+                  <Button
+                    color="primary"
+                    onClick={() => this.props.addToCart(this.props.product)}>
+                    Add to Cart (
+                    {(this.props.cartItem && this.props.cartItem.quantity) || 0}
+                    )
+                  </Button>
+                  <br />
+
+                  {/* {props.cartItem ? (
                 <div>
                   <Button
                     color="primary"
@@ -44,12 +100,14 @@ function ProductListItem(props) {
                   </Button>
                 </div>
               ) : null} */}
-            </div>
-          ) : null}
-        </CardBody>
-      </Card>
-    </div>
-  );
+                </div>
+              ) : null}
+            </CardBody>
+          </Card>
+        </div>
+      </div>
+    );
+  }
 }
 
 function mapStatetoProps(state) {
