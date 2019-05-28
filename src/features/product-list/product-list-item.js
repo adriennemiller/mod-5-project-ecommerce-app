@@ -49,12 +49,14 @@ class ProductListItem extends React.Component {
           </ModalHeader>
           <ModalBody>{this.props.product.description}</ModalBody>
           <ModalFooter>
-            <Button
-              color="primary"
-              onClick={() => this.props.addToCart(this.props.product)}>
-              Add to Cart (
-              {(this.props.cartItem && this.props.cartItem.quantity) || 0})
-            </Button>{' '}
+            {this.props.currentUser.username ? (
+              <Button
+                color="primary"
+                onClick={() => this.props.addToCart(this.props.product)}>
+                Add to Cart (
+                {(this.props.cartItem && this.props.cartItem.quantity) || 0})
+              </Button>
+            ) : null}
           </ModalFooter>
         </Modal>
 
@@ -78,9 +80,9 @@ class ProductListItem extends React.Component {
               <CardSubtitle onClick={this.toggle}>
                 ${this.props.product.price}
               </CardSubtitle>
+              <Button onClick={this.toggle}>Learn More</Button>
               {this.props.currentUser.username ? (
                 <div>
-                  <Button onClick={this.toggle}>Learn More</Button>
                   <br />
                   <Button
                     color="primary"

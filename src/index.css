@@ -32,10 +32,19 @@ code {
 
 
   .nav-spacing {
-      /* margin-left : 10px;
-      margin-right : 10px; */
+      /* margin-left : 10px; */
+      /* margin-right : 10px; */
+      color: black;
       padding:0 12px;
-      line-height:40px;   
+      line-height:60px;   
+  }
+
+  .nav-spacing-name {
+    margin-left : 10px;
+    margin-right : -15px; 
+    color: black;
+    padding: 0px;
+    line-height:60px;  
   }
 
   .button-space {
@@ -66,6 +75,30 @@ code {
     justify-content: center;
   }
 
+  /* .jumbo-image {
+    background-image: url("https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    display: block;
+    margin-left: -16vw;
+    margin-right: -16vw;
+    height: 550px;
+  } */
+
+  @media only screen and (min-width: 1500px) {
+    .jumbo-image {
+      background-image: url("https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+    display: block;
+    margin-left: -16vw;
+    margin-right: -16vw;
+    height: 550px;
+    }
+  }
+
+  .small-jumbo-image {
+    background-image: url("https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  }
 /* 
 
 

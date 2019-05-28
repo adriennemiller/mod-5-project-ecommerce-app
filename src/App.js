@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getProfileFetch, logoutUser } from './config/actions';
 import Router from './Router';
@@ -8,10 +9,15 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
+  NavLink,
   Container,
-  Button, 
-  NavbarToggler, 
-  Collapse
+  Button,
+  NavbarToggler,
+  Collapse,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 import logo from './logo.png';
 
@@ -20,8 +26,10 @@ class App extends Component {
     super(props);
 
     this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.state = {
-      collapsed: true
+      collapsed: true,
+      dropdownOpen: false
     };
   }
 
@@ -29,6 +37,12 @@ class App extends Component {
     this.setState({
       collapsed: !this.state.collapsed
     });
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
   }
 
   componentDidMount = () => {
@@ -52,45 +66,56 @@ class App extends Component {
       <div>
         <Navbar color="light" light expand="md" sticky="top">
           <NavbarBrand>
-            <NavLink to="/">
+            <NavLink tag={RRNavLink} to="/">
               <img src={logo} alt="logo" height="60" />
             </NavLink>
           </NavbarBrand>
-           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem className="nav-spacing">
-              <NavLink to="/">Home</NavLink>
-            </NavItem>
-            <NavItem className="nav-spacing">
-              {this.props.currentUser.username ? (
-                <NavLink to="/cart">
-                  Cart (
-                  {this.props.cart.reduce((acc, item) => {
-                    return acc + item.quantity;
-                  }, 0)}
-                  )
-                </NavLink>
-              ) : (
-                <NavLink to="/login">Sign In / Register</NavLink>
-              )}
-            </NavItem>
-            {this.props.currentUser.username ? (
+            <Nav className="ml-auto" navbar>
               <NavItem className="nav-spacing">
-                Welcome, {this.props.currentUser.username}
+                <NavLink tag={RRNavLink} to="/">
+                  Home
+                </NavLink>
               </NavItem>
-            ) : null}
-            <NavItem className="nav-spacing">
+              <NavItem className="nav-spacing">
+                {this.props.currentUser.username ? (
+                  <NavLink tag={RRNavLink} to="/cart">
+                    Cart (
+                    {this.props.cart.reduce((acc, item) => {
+                      return acc + item.quantity;
+                    }, 0)}
+                    )
+                  </NavLink>
+                ) : (
+                  <NavLink tag={RRNavLink} to="/login">
+                    Sign In / Register
+                  </NavLink>
+                )}
+              </NavItem>
               {this.props.currentUser.username ? (
-                <Button outline color="primary" onClick={this.handleClick}>
-                  Log Out
-                </Button>
+                <NavLink>
+                  <NavItem className="nav-spacing">
+                    <Dropdown
+                      isOpen={this.state.dropdownOpen}
+                      toggle={this.toggle}>
+                      <DropdownToggle caret>My Account</DropdownToggle>
+                      <DropdownMenu>
+                        <DropdownItem header>
+                          Welcome, {this.props.currentUser.username}
+                        </DropdownItem>
+                        <DropdownItem onClick={this.handleClick}>
+                          Log Out
+                        </DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                  </NavItem>
+                </NavLink>
               ) : null}
-            </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
-        
+
         <Container>
           <Router />
         </Container>
