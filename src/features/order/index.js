@@ -2,6 +2,7 @@ import React from 'react';
 
 import fetchApi from '../../modules/fetch-api';
 import scooterImg from '../../23.svg';
+import { Container, Row, Col } from 'reactstrap';
 
 class Order extends React.Component {
   state = {
@@ -20,10 +21,34 @@ class Order extends React.Component {
     const { order } = this.state;
     console.log(order);
     return (
-      <div>
-        <h3 className="text-center">Hooray, your order is on its way!</h3>
-        <img src={scooterImg} alt="man on scooter" className="scooter-img" />
-      </div>
+      <Container>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <h3 className="text-center">Hooray, your order is on its way!</h3>
+            <h4>
+              Order Confirmation Number:{' '}
+              {Math.floor(Math.random() * 100000 + 1)}
+            </h4>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <img
+              src={scooterImg}
+              alt="man on scooter"
+              className="scooter-img"
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col sm="12" md={{ size: 6, offset: 3 }}>
+            <h4 className="text-center">
+              Order Confirmation Number:{' '}
+              {Math.floor(Math.random() * 100000 + 1)}
+            </h4>
+          </Col>
+        </Row>
+      </Container>
     );
   }
   render() {

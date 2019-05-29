@@ -34,9 +34,9 @@ class ProductListItem extends React.Component {
     return (
       <div>
         <Modal
+          className="pop-up"
           isOpen={this.state.modal}
-          toggle={this.toggle}
-          className={this.props.className}>
+          toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
             {this.props.product.name} - ${this.props.product.price}
             <br />
@@ -77,7 +77,6 @@ class ProductListItem extends React.Component {
                 <Button
                   className="white-button"
                   size="sm"
-                  
                   onClick={this.toggle}>
                   Learn More
                 </Button>
