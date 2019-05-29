@@ -118,10 +118,28 @@ code {
     color: black;
   }
 
-  .jumbo-text {
+  .jumbo-head-text {
     font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #fff;
   }
 
+  .jumbo-body-text {
+    font-style: bold;
+    color: #fff;
+  }
+
+  .white-button {
+    background-color: #fff;
+    outline: #fff;
+    color: #000;
+    border-radius: 0px;
+  }
+
+  .white-button:hover {
+    background-color: #000;
+    color: #fff;
+  }
   
  
 /* 

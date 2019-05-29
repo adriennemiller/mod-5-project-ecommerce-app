@@ -100,7 +100,7 @@ class App extends Component {
                     <Dropdown
                       isOpen={this.state.dropdownOpen}
                       toggle={this.toggle}>
-                      <DropdownToggle outline color="secondary" caret>
+                      <DropdownToggle className="white-button" caret>
                         MY ACCOUNT
                       </DropdownToggle>
                       <DropdownMenu>

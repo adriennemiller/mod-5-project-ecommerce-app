@@ -49,7 +49,9 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button className="btn btn-lg btn-primary btn-block" type="submit">
+          <button
+            className="btn btn-lg btn-primary btn-block white-button"
+            type="submit">
             Sign Up
           </button>
         </form>

@@ -27,7 +27,7 @@ function Cart(props) {
             <tr>
               <td>
                 <Button
-                  color="primary"
+                  className="white-button"
                   onClick={e => props.removeAllFromCart(item)}>
                   X
                 </Button>
@@ -36,15 +36,13 @@ function Cart(props) {
 
               <td>
                 <Button
-                  className="button-space"
-                  color="primary"
+                  className="button-space white-button"
                   onClick={e => props.removeFromCart(item)}>
                   -
                 </Button>
                 {item.quantity}
                 <Button
-                  className="button-space"
-                  color="primary"
+                  className="button-space white-button"
                   onClick={e => props.addToCart(item)}>
                   +
                 </Button>
