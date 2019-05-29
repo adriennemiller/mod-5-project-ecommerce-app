@@ -73,19 +73,25 @@ class ProductListItem extends React.Component {
               <CardTitle onClick={this.toggle}>
                 <h3>{this.props.product.name}</h3>
               </CardTitle>
-              <CardText onClick={this.toggle}>
-                {' '}
-                {this.props.product.description}
+              <CardText>
+                <Button
+                  outline
+                  size="sm"
+                  color="secondary"
+                  onClick={this.toggle}>
+                  Learn More
+                </Button>
               </CardText>
               <CardSubtitle onClick={this.toggle}>
                 ${this.props.product.price}
               </CardSubtitle>
-              <Button onClick={this.toggle}>Learn More</Button>
+
               {this.props.currentUser.username ? (
                 <div>
                   <br />
                   <Button
-                    color="primary"
+                    block
+                    color="secondary"
                     onClick={() => this.props.addToCart(this.props.product)}>
                     Add to Cart (
                     {(this.props.cartItem && this.props.cartItem.quantity) || 0}

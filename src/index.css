@@ -3,8 +3,7 @@ body {
   padding: 0;
   width: 100%;
   
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: "Source Sans Pro", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,18 +86,44 @@ code {
   @media only screen and (min-width: 1500px) {
     .jumbo-image {
       background-image: url("https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: cover;
-    display: block;
-    margin-left: -16vw;
-    margin-right: -16vw;
-    height: 550px;
+      /* opacity: 0.5;
+      filter: alpha(opacity=50); */
+      background-size: cover;
+      display: block;
+      margin-left: -16vw;
+      margin-right: -16vw;
+      height: 550px;
     }
   }
 
   .small-jumbo-image {
     background-image: url("https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-  background-size: cover;
+    
+    background-size: cover;
   }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 42px;
+    color: black;
+  }
+
+  .bold {
+    font-style: bold;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+
+  .jumbo-text {
+    font-family: 'Playfair Display', serif;
+  }
+
+  
+ 
 /* 
 
 
