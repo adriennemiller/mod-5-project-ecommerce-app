@@ -12,9 +12,14 @@ class CartPage extends React.Component {
         {console.log(this.props.cart)}
         {this.props.cart.length === 0 ? <p>Your cart is empty!</p> : <Cart />}
         {this.props.cart.length === 0 ? null : (
-          <Link to="/checkout">
-            <Button className="white-button">Checkout</Button>
-          </Link>
+          <div>
+            <Link to="/">
+              <Button className="white-button">Continue Shopping</Button>
+            </Link>
+            <Link to="/checkout">
+              <Button className="black-button right-button">Checkout</Button>
+            </Link>
+          </div>
         )}
       </div>
     );

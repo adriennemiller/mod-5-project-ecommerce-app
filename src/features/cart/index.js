@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Table } from 'reactstrap';
+import { Button, Table, ButtonGroup } from 'reactstrap';
 
 // sort so they don't jump around
 function sort(items) {
@@ -13,7 +13,7 @@ function sort(items) {
 function Cart(props) {
   return (
     <div>
-      <Table striped>
+      <Table light>
         <thead>
           <tr>
             <th> </th>
@@ -27,25 +27,28 @@ function Cart(props) {
             <tr>
               <td>
                 <Button
-                  className="white-button"
+                  className="btn-circle cart-button"
                   onClick={e => props.removeAllFromCart(item)}>
-                  X
+                  <i className="material-icons">clear</i>
                 </Button>
               </td>
               <td>{item.name}</td>
 
               <td>
-                <Button
-                  className="button-space white-button"
-                  onClick={e => props.removeFromCart(item)}>
-                  -
-                </Button>
                 {item.quantity}
-                <Button
-                  className="button-space white-button"
-                  onClick={e => props.addToCart(item)}>
-                  +
-                </Button>
+                <ButtonGroup>
+                  <Button
+                    className="quantity-buttons"
+                    onClick={e => props.removeFromCart(item)}>
+                    -
+                  </Button>
+
+                  <Button
+                    className="quantity-buttons"
+                    onClick={e => props.addToCart(item)}>
+                    +
+                  </Button>
+                </ButtonGroup>
               </td>
               <td>${(item.price * item.quantity).toFixed(2)}</td>
             </tr>
