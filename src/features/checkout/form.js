@@ -9,7 +9,9 @@ function CheckoutForm(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <div>
-          <Button type="submit">Submit order</Button>
+          <Button className="white-button" type="submit">
+            Submit order
+          </Button>
         </div>
       </form>
     </div>

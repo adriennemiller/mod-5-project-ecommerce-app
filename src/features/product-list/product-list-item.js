@@ -51,7 +51,7 @@ class ProductListItem extends React.Component {
           <ModalFooter>
             {this.props.currentUser.username ? (
               <Button
-                color="primary"
+                className="white-button"
                 onClick={() => this.props.addToCart(this.props.product)}>
                 Add to Cart (
                 {(this.props.cartItem && this.props.cartItem.quantity) || 0})
@@ -73,19 +73,25 @@ class ProductListItem extends React.Component {
               <CardTitle onClick={this.toggle}>
                 <h3>{this.props.product.name}</h3>
               </CardTitle>
-              <CardText onClick={this.toggle}>
-                {' '}
-                {this.props.product.description}
+              <CardText>
+                <Button
+                  className="white-button"
+                  size="sm"
+                  
+                  onClick={this.toggle}>
+                  Learn More
+                </Button>
               </CardText>
               <CardSubtitle onClick={this.toggle}>
                 ${this.props.product.price}
               </CardSubtitle>
-              <Button onClick={this.toggle}>Learn More</Button>
+
               {this.props.currentUser.username ? (
                 <div>
                   <br />
                   <Button
-                    color="primary"
+                    block
+                    className="white-button"
                     onClick={() => this.props.addToCart(this.props.product)}>
                     Add to Cart (
                     {(this.props.cartItem && this.props.cartItem.quantity) || 0}

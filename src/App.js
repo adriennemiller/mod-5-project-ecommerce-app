@@ -19,7 +19,7 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import logo from './logo.png';
+import logo from './flower.png';
 
 class App extends Component {
   constructor(props) {
@@ -64,24 +64,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar color="light" light expand="md" sticky="top">
+        <Navbar color="white" light expand="md" sticky="top" className="bold">
           <NavbarBrand>
-            <NavLink tag={RRNavLink} to="/">
-              <img src={logo} alt="logo" height="60" />
-            </NavLink>
+            <NavItem tag={RRNavLink} to="/" className="logo">
+              {/* <img src={logo} alt="logo" height="60" /> */}
+              Fancy Pants
+            </NavItem>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="nav-spacing">
                 <NavLink tag={RRNavLink} to="/">
-                  Home
+                  HOME
                 </NavLink>
               </NavItem>
               <NavItem className="nav-spacing">
                 {this.props.currentUser.username ? (
                   <NavLink tag={RRNavLink} to="/cart">
-                    Cart (
+                    MY CART (
                     {this.props.cart.reduce((acc, item) => {
                       return acc + item.quantity;
                     }, 0)}
@@ -99,7 +100,9 @@ class App extends Component {
                     <Dropdown
                       isOpen={this.state.dropdownOpen}
                       toggle={this.toggle}>
-                      <DropdownToggle caret>My Account</DropdownToggle>
+                      <DropdownToggle className="white-button" caret>
+                        MY ACCOUNT
+                      </DropdownToggle>
                       <DropdownMenu>
                         <DropdownItem header>
                           Welcome, {this.props.currentUser.username}
