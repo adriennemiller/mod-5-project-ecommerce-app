@@ -6,6 +6,8 @@ This app is built with a React/Redux frontend and a Ruby on Rails backend. It is
 
 Technologies used: React, Redux, HTML/CSS, Rails, JWT Auth, PostgreSQL, Bootstrap/Reactstrap
 
+Demo: https://hank-and-olive.herokuapp.com/
+
 Demo video: https://youtu.be/vRMyV_KS584
 
 ![Ecommerce App screenshot](https://github.com/adriennemiller/mod-5-project-ecommerce-app/blob/master/screenshot.png?raw=true)
