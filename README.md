@@ -8,6 +8,8 @@ Technologies used: React, Redux, HTML/CSS, Rails, JWT Auth, PostgreSQL, Bootstra
 
 Demo video: https://youtu.be/vRMyV_KS584
 
+![Ecommerce App screenshot](https://github.com/adriennemiller/mod-5-project-ecommerce-app/blob/master/Screen%20Shot-%20EcommerceApp.png?raw=true)
+
 ## Installation Instructions
 
 1. Clone the repository to your computer
