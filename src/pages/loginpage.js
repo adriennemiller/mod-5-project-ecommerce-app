@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userLoginFetch } from '../config/actions';
 import { Link } from 'react-router-dom';
-import { Col, Button } from 'reactstrap';
+import { Col, Button, Container } from 'reactstrap';
 
 class Login extends Component {
   state = {
@@ -27,7 +27,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
           <form
             className="form-signin lower-content"
@@ -63,7 +63,7 @@ class Login extends Component {
           <br />
           Or <Link to="/signup">Create Account</Link>
         </Col>
-      </div>
+        </Container>
     );
   }
 }

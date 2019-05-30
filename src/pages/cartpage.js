@@ -8,7 +8,7 @@ import sadBaby from '../crying baby.svg';
 class CartPage extends React.Component {
   render() {
     return (
-      <div>
+      <Container>
         {console.log(this.props.cart)}
         {this.props.cart.length === 0 ? (
           <Container>
@@ -46,7 +46,7 @@ class CartPage extends React.Component {
             </Link>
           </div>
         )}
-      </div>
+      </Container>
     );
   }
 }

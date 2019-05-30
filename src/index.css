@@ -25,7 +25,7 @@ code {
 .page-container {
   margin: 10px auto;
   background-color: white;
-  /* padding: 32px; */
+
   position: relative;
 }
 
@@ -89,12 +89,7 @@ code {
       border-radius: 0px;
       
     }
-  
 
-  /* .small-jumbo-image {
-    background-image: url("https://images.pexels.com/photos/1132269/pexels-photo-1132269.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: cover;
-  } */
 
   .logo {
     font-family: 'Playfair Display', serif;
