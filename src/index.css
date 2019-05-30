@@ -145,6 +145,8 @@ code {
 
   .pop-up {
     border-radius: 0px;
+    width: 410px;
+    margin-top: 250px;
     /* max-width: 50%; */
   }
 
@@ -225,4 +227,17 @@ code {
 
 #navbar-custom {
   background-color:black;
+}
+
+.cart-spacing {
+  margin-top: 100px;
+}
+
+.inline {
+  float: left;
+}
+
+.left-margin {
+  /* margin-left: 20px; */
+  margin-top: 20px;
 }

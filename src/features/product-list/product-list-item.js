@@ -40,14 +40,20 @@ class ProductListItem extends React.Component {
           <ModalHeader toggle={this.toggle}>
             {this.props.product.name} - ${this.props.product.price}
             <br />
+          </ModalHeader>
+          <ModalBody>
             <img
-              height={200}
+              height={250}
               title={this.props.product.name}
               src={this.props.product.img}
               alt={this.props.product.name}
+              className="inline"
             />
-          </ModalHeader>
-          <ModalBody>{this.props.product.description}</ModalBody>
+
+            <p className="inline left-margin">
+              {this.props.product.description}
+            </p>
+          </ModalBody>
           <ModalFooter>
             {this.props.currentUser.username ? (
               <Button
