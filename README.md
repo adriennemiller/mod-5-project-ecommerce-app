@@ -6,6 +6,8 @@ This app is built with a React/Redux frontend and a Ruby on Rails backend. It is
 
 Technologies used: React, Redux, HTML/CSS, Rails, JWT Auth, PostgreSQL, Bootstrap/Reactstrap
 
+Demo video: https://youtu.be/vRMyV_KS584
+
 ## Installation Instructions
 
 1. Clone the repository to your computer
