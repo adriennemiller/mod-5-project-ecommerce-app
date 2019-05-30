@@ -34,7 +34,7 @@ class ProductListItem extends React.Component {
     return (
       <div>
         <Modal
-          className="modal-lg pop-up"
+          className="pop-up"
           isOpen={this.state.modal}
           toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
@@ -43,12 +43,13 @@ class ProductListItem extends React.Component {
           </ModalHeader>
           <ModalBody>
             <img
-              height={200}
+              height={250}
               title={this.props.product.name}
               src={this.props.product.img}
               alt={this.props.product.name}
               className="inline"
             />
+
             <p className="inline left-margin">
               {this.props.product.description}
             </p>
