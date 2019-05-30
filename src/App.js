@@ -17,7 +17,8 @@ import {
   Dropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
+  Jumbotron
 } from 'reactstrap';
 import logo from './flower.png';
 
@@ -64,7 +65,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar color="white" light expand="md" sticky="top" className="bold">
+        <Navbar
+          color="white"
+          light
+          expand="md"
+          sticky="top"
+          className="bold navbar-custom">
           <NavbarBrand>
             <NavItem tag={RRNavLink} to="/" className="logo">
               {/* <img src={logo} alt="logo" height="60" /> */}
@@ -90,7 +96,7 @@ class App extends Component {
                   </NavLink>
                 ) : (
                   <NavLink tag={RRNavLink} to="/login">
-                    Sign In / Register
+                    SIGN IN / REGISTER
                   </NavLink>
                 )}
               </NavItem>
@@ -119,9 +125,7 @@ class App extends Component {
           </Collapse>
         </Navbar>
 
-        <Container>
-          <Router />
-        </Container>
+        <Router />
       </div>
     );
   }

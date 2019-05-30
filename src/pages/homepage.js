@@ -13,14 +13,13 @@ export default function Homepage(props) {
             cupiditate.
           </p>
           <hr className="my-2" />
-          <p className="lead">
-            <Button className="white-button">Learn More</Button>
-          </p>
         </Jumbotron>
       </div>
-      <Col>
-        <ProductList />
-      </Col>
+      <Container>
+        <Col>
+          <ProductList />
+        </Col>
+      </Container>
     </div>
   );
 }
