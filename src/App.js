@@ -20,7 +20,7 @@ import {
   DropdownItem,
   Jumbotron
 } from 'reactstrap';
-import logo from './flower.png';
+import logo from './logo2.png';
 
 class App extends Component {
   constructor(props) {
@@ -73,8 +73,8 @@ class App extends Component {
           className="bold navbar-custom">
           <NavbarBrand>
             <NavItem tag={RRNavLink} to="/" className="logo">
-              {/* <img src={logo} alt="logo" height="60" /> */}
-              Fancy Pants
+              <img src={logo} alt="logo" height="60" />
+              Hank & Olive
             </NavItem>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
