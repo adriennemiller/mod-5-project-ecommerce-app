@@ -16,7 +16,7 @@ code {
 }
 
 .product-list-item {
-  padding: 10px 30px;
+  padding: 20px 30px;
   margin: 10px;
   width: 345px;
 
@@ -93,10 +93,11 @@ code {
 
   .logo {
     font-family: 'Playfair Display', serif;
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 42px;
     margin-left: 45px;
     color: #292929;
+    padding: 0px;
   }
 
   .bold {
