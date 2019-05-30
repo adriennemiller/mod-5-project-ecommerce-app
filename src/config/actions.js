@@ -62,7 +62,7 @@ export const userLoginFetch = user => {
       .then(res => res.json())
       .then(data => {
         if (data.message) {
-          alert('invalid login!');
+          alert('Username or password incorrect');
         } else {
           localStorage.setItem('token', data.jwt);
           dispatch(loginUser(data.user));
