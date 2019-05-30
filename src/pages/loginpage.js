@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { userLoginFetch } from '../config/actions';
 import { Link } from 'react-router-dom';
-import { Col } from 'reactstrap';
+import { Col, Button } from 'reactstrap';
 
 class Login extends Component {
   state = {
@@ -29,7 +29,9 @@ class Login extends Component {
     return (
       <div>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
-          <form className="form-signin" onSubmit={this.handleSubmit}>
+          <form
+            className="form-signin lower-content"
+            onSubmit={this.handleSubmit}>
             <h1 className="h3 mb-3 font-weight-normal">Login</h1>
 
             <label className="sr-only">Username</label>
@@ -52,12 +54,11 @@ class Login extends Component {
               onChange={this.handleChange}
             />
             <br />
-
-            <button
+            <Button
               className="btn btn-lg btn-primary btn-block white-button"
               type="submit">
               Log In
-            </button>
+            </Button>
           </form>
           <br />
           Or <Link to="/signup">Create Account</Link>
