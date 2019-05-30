@@ -34,20 +34,25 @@ class ProductListItem extends React.Component {
     return (
       <div>
         <Modal
-          className="pop-up"
+          className="modal-lg pop-up"
           isOpen={this.state.modal}
           toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
             {this.props.product.name} - ${this.props.product.price}
             <br />
+          </ModalHeader>
+          <ModalBody>
             <img
               height={200}
               title={this.props.product.name}
               src={this.props.product.img}
               alt={this.props.product.name}
+              className="inline"
             />
-          </ModalHeader>
-          <ModalBody>{this.props.product.description}</ModalBody>
+            <p className="inline left-margin">
+              {this.props.product.description}
+            </p>
+          </ModalBody>
           <ModalFooter>
             {this.props.currentUser.username ? (
               <Button

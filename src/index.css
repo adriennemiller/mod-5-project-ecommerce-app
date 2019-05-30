@@ -145,6 +145,8 @@ code {
 
   .pop-up {
     border-radius: 0px;
+    height: 500px;
+    margin-top: 250px;
     /* max-width: 50%; */
   }
 
@@ -229,4 +231,12 @@ code {
 
 .cart-spacing {
   margin-top: 100px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.left-margin {
+  margin-left: 20px;
 }
