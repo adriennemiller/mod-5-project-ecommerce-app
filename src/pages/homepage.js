@@ -9,8 +9,8 @@ export default function Homepage(props) {
         <Jumbotron className="jumbo-image small-jumbo-image">
           <h1 className="display-3  jumbo-head-text">Hello, world!</h1>
           <p className="lead jumbo-body-text">
-            This is a simple hero unit, a simple Jumbotron-style component for
-            calling extra attention to featured content or information.
+            Recusandae soluta tempora. Ipsam qui optio. Quaerat assumenda
+            cupiditate.
           </p>
           <hr className="my-2" />
           <p className="lead">
