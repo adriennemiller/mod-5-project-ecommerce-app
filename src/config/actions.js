@@ -2,7 +2,7 @@ export const getProfileFetch = () => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch('http://localhost:4000/profile', {
+      return fetch('https://backend-ecommerce.herokuapp.com/profile', {
         method: 'GET',
         headers: {
           'Content-Type': 'applicaiton/json',
@@ -24,7 +24,7 @@ export const getProfileFetch = () => {
 
 export const userPostFetch = user => {
   return dispatch => {
-    return fetch('http://localhost:4000/users', {
+    return fetch('https://backend-ecommerce.herokuapp.com/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const loginUser = userObj => ({
 
 export const userLoginFetch = user => {
   return dispatch => {
-    return fetch('http://localhost:4000/login', {
+    return fetch('https://backend-ecommerce.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

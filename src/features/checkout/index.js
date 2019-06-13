@@ -6,7 +6,7 @@ import fetchApi from '../../modules/fetch-api';
 import { Button, Table, Container } from 'reactstrap';
 
 function submitOrder(item, currentUser) {
-  fetchApi('POST', 'http://localhost:4000/orders', {
+  fetchApi('POST', 'https://backend-ecommerce.herokuapp.com/orders', {
     product_id: item.id,
     quantity: item.quantity,
     user_id: currentUser.id

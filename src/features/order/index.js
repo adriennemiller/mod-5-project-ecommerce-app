@@ -10,11 +10,13 @@ class Order extends React.Component {
   };
 
   componentDidMount() {
-    fetchApi('get', `http://localhost:4000/orders/`).then(json => {
-      this.setState({
-        order: json
-      });
-    });
+    fetchApi('get', `https://backend-ecommerce.herokuapp.com/orders/`).then(
+      json => {
+        this.setState({
+          order: json
+        });
+      }
+    );
   }
 
   renderOrder() {

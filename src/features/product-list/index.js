@@ -7,9 +7,11 @@ import { Container, Row, Col } from 'reactstrap';
 class ProductList extends React.Component {
   componentDidMount() {
     const { loadProducts } = this.props;
-    fetchApi('get', 'http://localhost:4000/products').then(json => {
-      loadProducts(json);
-    });
+    fetchApi('get', 'https://backend-ecommerce.herokuapp.com/products').then(
+      json => {
+        loadProducts(json);
+      }
+    );
   }
 
   render() {
