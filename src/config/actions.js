@@ -24,7 +24,7 @@ export const getProfileFetch = () => {
 
 export const userPostFetch = user => {
   return dispatch => {
-    return fetch('https://h-and-o-backend.herokuapp.comusers', {
+    return fetch('https://h-and-o-backend.herokuapp.com/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
