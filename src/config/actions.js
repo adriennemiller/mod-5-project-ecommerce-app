@@ -1,13 +1,8 @@
-const loginUser = userObj => ({
-  type: 'LOGIN_USER',
-  payload: userObj
-});
-
 export const getProfileFetch = () => {
   return dispatch => {
     const token = localStorage.token;
     if (token) {
-      return fetch('http://localhost:4000/profile', {
+      return fetch('https://backend-ecommerce.herokuapp.com/profile', {
         method: 'GET',
         headers: {
           'Content-Type': 'applicaiton/json',
@@ -20,7 +15,7 @@ export const getProfileFetch = () => {
           if (data.message) {
             localStorage.removeItem('token');
           } else {
-            dispatch(loginUser(data.User));
+            dispatch(loginUser(data.user));
           }
         });
     }
@@ -29,7 +24,7 @@ export const getProfileFetch = () => {
 
 export const userPostFetch = user => {
   return dispatch => {
-    return fetch('http://localhost:4000/users', {
+    return fetch('https://backend-ecommerce.herokuapp.com/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +32,7 @@ export const userPostFetch = user => {
       },
       body: JSON.stringify({ user })
     })
-      .then(res => res.json())
+      .then(resp => resp.json())
       .then(data => {
         if (data.message) {
           alert('error creating account');
@@ -49,11 +44,16 @@ export const userPostFetch = user => {
   };
 };
 
+const loginUser = userObj => ({
+  type: 'LOGIN_USER',
+  payload: userObj
+});
+
 export const userLoginFetch = user => {
   return dispatch => {
-    return fetch('http://localhost:4000/users', {
+    return fetch('https://backend-ecommerce.herokuapp.com/login', {
       method: 'POST',
-      header: {
+      headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json'
       },
@@ -62,7 +62,7 @@ export const userLoginFetch = user => {
       .then(res => res.json())
       .then(data => {
         if (data.message) {
-          alert('invalid login!');
+          alert('Username or password incorrect');
         } else {
           localStorage.setItem('token', data.jwt);
           dispatch(loginUser(data.user));
